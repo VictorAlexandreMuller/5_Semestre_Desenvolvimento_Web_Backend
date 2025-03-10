@@ -27,25 +27,27 @@ public class DemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         List<CategoriaCurso> categoriaCurso = Arrays.asList(
-			new CategoriaCurso(null, "Pedro"),
+			new CategoriaCurso(null, "Augusto Vernek"),
 			new CategoriaCurso(null, "Pedro Henrique"),
-			new CategoriaCurso(null, "Ricardo"),
-			new CategoriaCurso(null, "Nicolas"),
-			new CategoriaCurso(null, "Leo")
-
-
+			new CategoriaCurso(null, "Victor Alexandre"),
+			new CategoriaCurso(null, "Lucas Martins"),
+			new CategoriaCurso(null, "Geovanna"),
+			new CategoriaCurso(null, "Maria"),
+			new CategoriaCurso(null, "Carol"),
+			new CategoriaCurso(null, "Teacher Cilene"),
+			new CategoriaCurso(null, "Real")
 			);
 
 			categoriaCurso.forEach(c -> repository.inserir(c));
 			
-			repository.excluir(4);
-			repository.editar(new CategoriaCurso(5L, "Leonardo"));
+			repository.excluir(9);
+			repository.editar(new CategoriaCurso(6L, "Eliney"));
 			
 			var catecurso = repository.obterTodos();
 			
 			catecurso.forEach(System.out::println);
 			
-			var buscarNome = repository.obterPorNome("Pedro");
+			var buscarNome = repository.obterPorNome("dr");
 			
 			System.out.printf("%nObtendo por nome:%n");
 			buscarNome.forEach(System.out::println);

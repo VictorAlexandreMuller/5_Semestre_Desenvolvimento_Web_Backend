@@ -15,8 +15,8 @@ import jakarta.persistence.Table;
 public class Medicamento {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String nome;
@@ -33,7 +33,7 @@ public class Medicamento {
     public Medicamento() {
     }
 
-    public Medicamento(long id, String nome, String laboratorio, BigDecimal preco, LocalDate dataValidade) {
+    public Medicamento(Long id, String nome, String laboratorio, BigDecimal preco, LocalDate dataValidade) {
         this.id = id;
         this.nome = nome;
         this.laboratorio = laboratorio;
@@ -80,5 +80,11 @@ public class Medicamento {
     public void setDataValidade(LocalDate dataValidade) {
         this.dataValidade = dataValidade;
     }
+
+    @Override
+	public String toString() {
+		return "[ID: " + id + " ] " + "Medicamento ==> [Nome: " + nome + ", Laboratório: " + laboratorio + ", Preço: " + preco
+				+ ", Data de Validade: " + dataValidade + "]";
+	}
 
 }

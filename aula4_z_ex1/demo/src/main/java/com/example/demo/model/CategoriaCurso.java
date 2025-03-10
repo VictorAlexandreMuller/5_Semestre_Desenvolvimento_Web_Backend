@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "categoria_curso")
+@Table(name = "nome")
 public class CategoriaCurso {
 
     @Id
@@ -42,6 +42,9 @@ public class CategoriaCurso {
         this.nome = nome;
     }
 
-    
+    @Override
+	public String toString() {
+		return "CategoriaCurso [id=" + id + ", nome=" + nome + "]";
+	}
 
 }

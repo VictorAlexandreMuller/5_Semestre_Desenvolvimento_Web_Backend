@@ -8,6 +8,7 @@ import com.example.demo.model.CategoriaCurso;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.criteria.From;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -17,7 +18,7 @@ public class CategoriaCursoRepository {
     private EntityManager entityManager;
 
     public List<CategoriaCurso> obterTodos() {
-        return entityManager.createQuery("SELECT c FROM CategoriaCurso c", CategoriaCurso.class).getResultList();
+        return entityManager.createQuery("From CategoriaCurso", CategoriaCurso.class).getResultList();
     }
 
     @Transactional
@@ -26,7 +27,7 @@ public class CategoriaCursoRepository {
     }
 
     public List<CategoriaCurso> obterPorNome(String nome) {
-        return entityManager.createQuery("SELECT c FROM CategoriaCurso c WHERE c.nome = :nome", CategoriaCurso.class)
+        return entityManager.createQuery("From CategoriaCurso c WHERE c.nome LIKE :nome", CategoriaCurso.class)
                 .setParameter("nome", "%" + nome + "%")
                 .getResultList();
     }
