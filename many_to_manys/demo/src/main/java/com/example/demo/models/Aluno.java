@@ -57,13 +57,14 @@ public class Aluno {
     }
 
     public Aluno(Long id, String nome, Integer idade, LocalDate dataMatricula, Plano plano,
-            List<Funcionario> funcionarios) {
+            List<Funcionario> funcionarios, List<Treino> treinos) {
         this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.dataMatricula = dataMatricula;
         this.plano = plano;
         this.funcionarios = funcionarios;
+        this.treinos = treinos;
     }
 
     public Long getId() {
@@ -113,6 +114,16 @@ public class Aluno {
     public void setFuncionarios(List<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
     }
+
+    public List<Treino> getTreinos() {
+        return treinos;
+    }
+
+    public void setTreinos(List<Treino> treinos) {
+        this.treinos = treinos;
+    }
+
+    
 
 
     

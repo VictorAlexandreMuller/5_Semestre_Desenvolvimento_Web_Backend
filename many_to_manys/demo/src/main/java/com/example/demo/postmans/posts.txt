@@ -1,0 +1,57 @@
+----------------------------------------------------------------------------------
+Como adicionar um PLANO no POSTMAN:
+
+Post:
+http://localhost:9097/planos
+
+Exemplo:
+{
+    "tipo": "Mensal"
+}
+
+----------------------------------------------------------------------------------
+Como adicionar um ALUNO no POSTMAN:
+
+Post:
+http://localhost:9097/alunos
+
+Exemplo:
+{
+    "nome": "João Silva",
+    "idade": 25,
+    "dataMatricula": "2025-03-20",
+    "plano": {
+        "id": 1
+    },
+    "funcionarios": [],
+    "treinos": []
+}
+----------------------------------------------------------------------------------
+Como adicionar um FUNCIONARIO no POSTMAN:
+
+Post:
+http://localhost:9097/funcionarios
+
+Exemplo:
+{
+    "nome": "Carlos Souza",
+    "cargo": "Instrutor",
+    "dataContratacao": "2025-03-20"
+}
+----------------------------------------------------------------------------------
+Como adicionar um TREINO no POSTMAN:
+
+Post:
+http://localhost:9097/treinos
+
+Exemplo:
+{
+    "descricao": "Treino de costas e bíceps",
+    "data": "2025-03-20",
+    "aluno": {
+        "id": 1
+    }
+}
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------

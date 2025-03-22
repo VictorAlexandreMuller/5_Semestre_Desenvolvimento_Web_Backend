@@ -1,5 +1,9 @@
 package com.example.demo.models;
 
+import java.time.LocalDate;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,9 +24,13 @@ public class Treino {
     @Column(nullable = false)
     private String descricao;
 
+    @Column(nullable = false)
+    private LocalDate data;
+
     // @Column(nullable = false)
     // private String grupoMuscular;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "aluno_id", nullable = false)
     private Aluno aluno;
@@ -30,10 +38,10 @@ public class Treino {
     public Treino() {
     }
 
-    public Treino(Long id, String descricao, String grupoMuscular, Aluno aluno) {
+    public Treino(Long id, String descricao, LocalDate data, Aluno aluno) {
         this.id = id;
         this.descricao = descricao;
-        // this.grupoMuscular = grupoMuscular;
+        this.data = data;
         this.aluno = aluno;
     }
 
@@ -67,6 +75,14 @@ public class Treino {
 
     public void setAluno(Aluno aluno) {
         this.aluno = aluno;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
     }
 
     

@@ -1,0 +1,36 @@
+----------------------------------------------------------------------------------
+Como deletar um PLANO no POSTMAN:
+
+Verificar o ID correto para não deletar nada acidentalmente.
+
+Delete:
+http://localhost:9097/planos/id
+Execute.
+
+----------------------------------------------------------------------------------
+Como deletar um ALUNO no POSTMAN:
+
+Verificar o ID correto para não deletar nada acidentalmente.
+
+Delete:
+http://localhost:9097/alunos/id
+Execute.
+----------------------------------------------------------------------------------
+Como deletar um FUNCIONARIO no POSTMAN:
+
+Verificar o ID correto para não deletar nada acidentalmente.
+
+Delete:
+http://localhost:9097/funcionarios/id
+Execute.
+----------------------------------------------------------------------------------
+Como deletar um TREINO no POSTMAN:
+
+Verificar o ID correto para não deletar nada acidentalmente.
+
+Delete:
+http://localhost:9097/treinos/id
+Execute.
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------

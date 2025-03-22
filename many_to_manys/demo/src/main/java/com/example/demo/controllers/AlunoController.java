@@ -12,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.models.Treino;
-import com.example.demo.services.TreinoService;
+import com.example.demo.models.Aluno;
+import com.example.demo.services.AlunoService;
 
 @RestController
-@RequestMapping("/treinos")
-public class TreinoController {
+@RequestMapping("/alunos")
+public class AlunoController {
 
     @Autowired
-    private TreinoService treinoService;
+    private AlunoService alunoService;
 
     @GetMapping
-    public List<Treino> listarTodos() {
-        return treinoService.listarTodos();
+    public List<Aluno> listarTodos() {
+        return alunoService.listarTodos();
     }
 
-    @GetMapping("/aluno/{alunoId}")
-    public List<Treino> listarPorAluno(@PathVariable Long alunoId) {
-        return treinoService.listarPorAluno(alunoId);
+    @GetMapping("/{id}")
+    public Aluno buscarPorId(@PathVariable Long id) {
+        return alunoService.buscarPorId(id);
     }
 
     @PostMapping
-    public Treino criar(@RequestBody Treino treino) {
-        return treinoService.salvar(treino);
+    public Aluno criar(@RequestBody Aluno aluno) {
+        return alunoService.salvar(aluno);
     }
 
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        treinoService.deletar(id);
+        alunoService.deletar(id);
     }
 
     @PutMapping("/{id}")
-    public Treino atualizar(@PathVariable Long id, @RequestBody Treino treino) {
-        return treinoService.atualizar(id, treino);
+    public Aluno atualizar(@PathVariable Long id, @RequestBody Aluno aluno) {
+        return alunoService.atualizar(id, aluno);
     }
 
 }

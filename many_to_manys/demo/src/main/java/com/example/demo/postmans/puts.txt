@@ -1,0 +1,50 @@
+----------------------------------------------------------------------------------
+Como atualizar um PLANO no POSTMAN:
+
+Put:
+http://localhost:9097/planos/id
+
+Exemplo:
+{
+    "tipo": "Mensal Atualizado"
+}
+
+----------------------------------------------------------------------------------
+Como atualizar um ALUNO no POSTMAN:
+
+Put:
+http://localhost:9097/alunos/id
+
+Exemplo:
+{
+    "nome": "João Alterado",
+    "idade": 28,
+    "plano": {
+        "id": 1
+    }
+}
+----------------------------------------------------------------------------------
+Como atualizar um FUNCIONARIO no POSTMAN:
+
+Put:
+http://localhost:9097/funcionarios/id
+
+Exemplo:
+{
+    "nome": "Carlos Souza Alterado",
+    "cargo": "Personal Trainer"
+}
+----------------------------------------------------------------------------------
+Como atualizar um TREINO no POSTMAN:
+
+Put:
+http://localhost:9097/treinos/id
+
+Exemplo:
+{
+    "descricao": "Treino de perna atualizado",
+    "data": "2025-04-10"
+}
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------

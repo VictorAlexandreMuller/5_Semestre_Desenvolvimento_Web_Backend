@@ -1,0 +1,39 @@
+----------------------------------------------------------------------------------
+Como buscar um ou mais PLANOS no POSTMAN:
+
+Verificar o ID existe.
+
+Gets:
+http://localhost:9097/planos
+http://localhost:9097/planos/id
+
+----------------------------------------------------------------------------------
+Como buscar um ou mais ALUNOS no POSTMAN:
+
+Verificar o ID existe.
+
+Gets:
+http://localhost:9097/alunos
+http://localhost:9097/alunos/id
+
+----------------------------------------------------------------------------------
+Como buscar um ou mais FUNCIONARIOS no POSTMAN:
+
+Verificar o ID existe.
+
+Gets:
+http://localhost:9097/funcionarios
+http://localhost:9097/funcionarios/id
+
+----------------------------------------------------------------------------------
+Como buscar um ou mais TREINOS no POSTMAN:
+
+Verificar o ID existe.
+
+Gets:
+http://localhost:9097/treinos
+http://localhost:9097/treinos/id
+
+----------------------------------------------------------------------------------
+
+----------------------------------------------------------------------------------
