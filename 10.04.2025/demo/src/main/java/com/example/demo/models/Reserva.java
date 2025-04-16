@@ -24,6 +24,8 @@ public class Reserva {
     
     private LocalDate dataSaida;
 
+    private Double valorTotal;
+
     public Long getId() {
         return id;
     }
@@ -54,6 +56,12 @@ public class Reserva {
     public void setDataSaida(LocalDate dataSaida) {
         this.dataSaida = dataSaida;
     }
-
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+    
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
     
 }

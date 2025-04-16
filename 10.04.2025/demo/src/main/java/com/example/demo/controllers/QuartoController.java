@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.models.Quarto;
+import com.example.demo.models.QuartoNormal;
+import com.example.demo.models.QuartoVip;
 import com.example.demo.services.QuartoService;
 
 @RestController
@@ -27,8 +29,13 @@ public class QuartoController {
         return service.listarTodos();
     }
 
-    @PostMapping
-    public Quarto salvar(@RequestBody Quarto quarto) {
+    @PostMapping("/normal")
+    public Quarto salvarNormal(@RequestBody QuartoNormal quarto) {
+        return service.salvar(quarto);
+    }
+
+    @PostMapping("/vip")
+    public Quarto salvarVip(@RequestBody QuartoVip quarto) {
         return service.salvar(quarto);
     }
 

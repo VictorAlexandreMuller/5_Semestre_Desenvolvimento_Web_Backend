@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,7 @@ import com.example.demo.services.ClienteService;
 @RestController
 @RequestMapping("/api/clientes")
 public class ClienteController {
+
     private final ClienteService service;
 
     public ClienteController(ClienteService service) {
@@ -41,4 +43,10 @@ public class ClienteController {
     public void excluir(@PathVariable Long id) {
         service.deletar(id);
     }
+
+    @PutMapping("/{id}")
+    public Cliente atualizar(@PathVariable Long id, @RequestBody Cliente clienteAtualizado) {
+        return service.atualizar(id, clienteAtualizado);
+    }
+
 }
