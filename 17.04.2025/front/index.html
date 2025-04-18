@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Confeitaria - Sistema de Pedidos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h1 class="mb-4 text-center">Confeitaria - Gestão de Pedidos</h1>
+
+    <!-- Cadastro de Cliente -->
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">Cadastrar Cliente</div>
+      <div class="card-body">
+        <input id="nomeCliente" class="form-control mb-2" placeholder="Nome do Cliente">
+        <input id="telefoneCliente" class="form-control mb-2" placeholder="Telefone">
+        <button class="btn btn-success" onclick="cadastrarCliente()">Cadastrar</button>
+      </div>
+    </div>
+
+    <!-- Lista de Clientes -->
+    <div class="card mb-4">
+      <div class="card-header bg-info text-white">Clientes Cadastrados</div>
+      <div class="card-body" id="listaClientes"></div>
+    </div>
+
+    <!-- Cadastro de Sabor -->
+    <div class="card mb-4">
+      <div class="card-header bg-success text-white">Cadastrar Sabor</div>
+      <div class="card-body">
+        <input id="nomeSabor" class="form-control mb-2" placeholder="Nome do Sabor">
+        <textarea id="descricaoSabor" class="form-control mb-2" placeholder="Descrição do Sabor"></textarea>
+        <button class="btn btn-success" onclick="cadastrarSabor()">Cadastrar Sabor</button>
+        <div class="mt-2" id="mensagemSabor"></div>
+      </div>
+    </div>
+
+    <!-- Criar Pedido -->
+    <div class="card mb-4">
+      <div class="card-header bg-warning">Criar Pedido</div>
+      <div class="card-body">
+        <select id="clientePedido" class="form-select mb-2"></select>
+        <select id="saborPedido" class="form-select mb-2"></select>
+        <select id="statusPedido" class="form-select mb-2">
+          <option value="PENDENTE">Pendente</option>
+          <option value="EM_PRODUCAO">Em Produção</option>
+          <option value="PRONTO">Pronto</option>
+          <option value="ENTREGUE">Entregue</option>
+        </select>
+        <button class="btn btn-primary" onclick="criarPedido()">Criar Pedido</button>
+      </div>
+    </div>
+
+    <!-- Lista de Pedidos -->
+    <div class="card">
+      <div class="card-header bg-secondary text-white">Pedidos</div>
+      <div class="card-body" id="listaPedidos"></div>
+    </div>
+  </div>
+
+  <script>
+    const API = "http://localhost:8080/api";
+
+    async function cadastrarCliente() {
+      const nome = document.getElementById("nomeCliente").value;
+      const telefone = document.getElementById("telefoneCliente").value;
+
+      if (!nome || !telefone) {
+        alert("Preencha todos os campos do cliente.");
+        return;
+      }
+
+      try {
+        await axios.post(`${API}/clientes`, { nome, telefone });
+        alert("Cliente cadastrado com sucesso!");
+        document.getElementById("nomeCliente").value = "";
+        document.getElementById("telefoneCliente").value = "";
+        carregarClientes();
+      } catch (error) {
+        alert("Erro ao cadastrar cliente.");
+        console.error(error);
+      }
+    }
+
+    async function cadastrarSabor() {
+      const nome = document.getElementById("nomeSabor").value.trim();
+      const descricao = document.getElementById("descricaoSabor").value.trim();
+      const msg = document.getElementById("mensagemSabor");
+
+      if (!nome || !descricao) {
+        msg.innerHTML = '<div class="alert alert-warning">Preencha todos os campos do sabor.</div>';
+        return;
+      }
+
+      try {
+        await axios.post(`${API}/sabores`, { nome, descricao });
+        msg.innerHTML = '<div class="alert alert-success">Sabor cadastrado com sucesso!</div>';
+        document.getElementById("nomeSabor").value = "";
+        document.getElementById("descricaoSabor").value = "";
+        carregarSabores();
+      } catch (error) {
+        console.error(error);
+        msg.innerHTML = '<div class="alert alert-danger">Erro ao cadastrar sabor.</div>';
+      }
+    }
+
+    async function criarPedido() {
+      const clienteId = document.getElementById("clientePedido").value;
+      const saborId = document.getElementById("saborPedido").value;
+      const status = document.getElementById("statusPedido").value;
+
+      if (!clienteId || !saborId || !status) {
+        alert("Preencha todos os campos do pedido.");
+        return;
+      }
+
+      try {
+        await axios.post(`${API}/pedidos`, { clienteId, saborId, status });
+        alert("Pedido criado com sucesso!");
+        carregarPedidos();
+      } catch (error) {
+        alert("Erro ao criar pedido.");
+        console.error(error);
+      }
+    }
+
+    async function atualizarStatus(id, status) {
+      try {
+        await axios.patch(`${API}/pedidos/${id}/status?status=${status}`);
+        alert("Status atualizado!");
+        carregarPedidos();
+      } catch (error) {
+        alert("Erro ao atualizar status.");
+        console.error(error);
+      }
+    }
+
+    async function carregarClientes() {
+      try {
+        const res = await axios.get(`${API}/clientes`);
+        const select = document.getElementById("clientePedido");
+        const lista = document.getElementById("listaClientes");
+        select.innerHTML = "";
+        lista.innerHTML = "";
+
+        res.data.forEach(c => {
+          select.innerHTML += `<option value="${c.id}">${c.nome}</option>`;
+          lista.innerHTML += `<p>#${c.id} - ${c.nome} (${c.telefone})</p>`;
+        });
+      } catch (error) {
+        console.error("Erro ao carregar clientes", error);
+      }
+    }
+
+    async function carregarSabores() {
+      try {
+        const res = await axios.get(`${API}/sabores`);
+        const select = document.getElementById("saborPedido");
+        select.innerHTML = "";
+
+        res.data.forEach(s => {
+          select.innerHTML += `<option value="${s.id}">${s.nome}</option>`;
+        });
+      } catch (error) {
+        console.error("Erro ao carregar sabores", error);
+      }
+    }
+
+    async function carregarPedidos() {
+      try {
+        const res = await axios.get(`${API}/pedidos`);
+        const lista = document.getElementById("listaPedidos");
+        lista.innerHTML = "";
+
+        res.data.forEach(p => {
+          const card = document.createElement("div");
+          card.className = "border p-3 mb-3";
+          card.innerHTML = `
+            <strong>Pedido #${p.id}</strong><br>
+            Cliente: ${p.cliente.nome}<br>
+            Sabor: ${p.sabor.nome}<br>
+            Status Atual: <strong>${p.status}</strong><br>
+            <select class="form-select form-select-sm mt-2" onchange="atualizarStatus(${p.id}, this.value)">
+              <option disabled selected>Alterar status</option>
+              <option value="PENDENTE">Pendente</option>
+              <option value="EM_PRODUCAO">Em Produção</option>
+              <option value="PRONTO">Pronto</option>
+              <option value="ENTREGUE">Entregue</option>
+            </select>
+          `;
+          lista.appendChild(card);
+        });
+      } catch (error) {
+        console.error("Erro ao carregar pedidos", error);
+      }
+    }
+
+    window.onload = () => {
+      carregarClientes();
+      carregarSabores();
+      carregarPedidos();
+    };
+  </script>
+</body>
+</html>
