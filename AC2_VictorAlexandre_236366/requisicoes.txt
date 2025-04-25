@@ -1,0 +1,58 @@
+1. Cadastrar Cliente – POST /clientes
+URL: http://localhost:8080/clientes
+Method: POST
+Body (raw, JSON):
+{
+  "nomeEmpresa": "Empresa Alpha",
+  "cnpj": "12.345.678/0001-90",
+  "contato": "contato@empresa.com"
+}
+
+
+
+2. Cadastrar Colaborador – POST /colaboradores
+URL: http://localhost:8080/colaboradores
+Method: POST
+Body (raw, JSON):
+{
+  "nome": "João Silva",
+  "cargo": "Desenvolvedor",
+  "email": "joao@empresa.com"
+}
+
+
+
+3. Listar Clientes – GET /clientes
+URL: http://localhost:8080/clientes
+Method: GET
+Body: (nenhum)
+
+
+
+4. Listar Colaboradores – GET /colaboradores
+URL: http://localhost:8080/colaboradores
+Method: GET
+Body: (nenhum)
+
+
+
+5. Cadastrar Projeto (vinculado a um Cliente) – POST /projetos/{clienteId}
+URL: http://localhost:8080/projetos/X (Substitua X pelo ID de um cliente cadastrado)
+Method: POST
+Body (raw, JSON):
+{
+  "nome": "Sistema de Controle Interno",
+  "status": "Planejamento"
+}
+
+
+
+6. Listar Projetos – GET /projetos
+URL: http://localhost:8080/projetos
+Method: GET
+Body: (nenhum)
+
+
+
+7. Atualizar Status de Projeto – PUT /projetos/{id}/status?status=NovoValor
+URL: http://localhost:8080/projetos/1/status?status=Em%20Desenvolvimento

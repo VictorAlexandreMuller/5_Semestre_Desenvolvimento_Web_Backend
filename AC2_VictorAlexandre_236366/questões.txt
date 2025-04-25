@@ -1,0 +1,50 @@
+1-
+
+No back-end, os padrões de projeto são fundamentais para solucionar diversos desafios comuns, como:
+
+Estruturar o código de forma organizada, utilizando camadas como controllers, services e repositórios;
+Controlar e otimizar o gerenciamento das conexões com o banco de dados;
+Tratar requisições HTTP de maneira eficiente e padronizada;
+Garantir a separação adequada de responsabilidades entre os componentes da aplicação;
+Desenvolver APIs que sejam escaláveis, de fácil manutenção e com bom desempenho.
+Considerando o seu projeto final de StartUP, descreva com riqueza de detalhes, pode evidenciar com imagens (se desejar) ou arquivos, como está a implementação dos padrões do seu projeto.
+
+Essa questão é individual, assim, mesmo que existam alunos na sala desenvolvendo o mesmo projeto, cada aluno, deve responder a essa questão sem cópia ou mesmo conteúdo do colega.
+
+ 
+
+Para os alunos, que não estão realizando nesse semestre o projeto de StartUP final, realize essa implementação para uma imobiliária.
+
+A imobiliária atua com compra, venda e locação de imóveis, e precisa de um sistema para organizar e automatizar seus processos internos.
+
+Os imóveis podem ser casas, apartamentos, terrenos ou salas comerciais, e pertencem a diferentes clientes proprietários. O sistema deve também permitir o acompanhamento das negociações de vendas e aluguéis.
+
+- Funcionalidades do Sistema:
+
+Cadastrar e listar clientes proprietários, com seus dados de contato.
+Cadastrar e listar imóveis, associando cada imóvel a um cliente proprietário.
+Definir o tipo de imóvel (Casa, Apartamento, Terreno, Sala Comercial) e sua finalidade (Venda, Aluguel ou Ambos).
+Criar e acompanhar negociações, seja de venda ou aluguel, com informações sobre o cliente interessado, valor proposto, status da negociação, e tipo (venda ou aluguel).
+Atualizar o status da negociação (Ex: Em Negociação, Fechada, Cancelada).
+Listar todos os imóveis disponíveis para venda, aluguel ou ambos, com filtros opcionais.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2-
+
+Você foi contratado por uma empresa especializada em desenvolvimento de projetos e sistemas integrados.  A empresa atende diversos clientes e conta com uma equipe de 15 colaboradores. Cada cliente pode ter um ou mais projetos em andamento, e cada projeto pode ter vários colaboradores alocados — da mesma forma, cada colaborador pode participar de diversos projetos simultaneamente.
+
+Sua missão é desenvolver um sistema de gerenciamento com as seguintes funcionalidades:
+
+Cadastro e listagem de clientes (nome da empresa, CNPJ, contato).
+Cadastro e listagem de colaboradores (nome, cargo, e-mail).
+Cadastro e gerenciamento de projetos, onde cada projeto deve estar associado a um cliente.
+Atribuição de colaboradores a projetos, permitindo múltiplos colaboradores por projeto e múltiplos projetos por colaborador.
+Atualização do status de um projeto (Ex: Planejamento, Em Desenvolvimento, Concluído, Pausado).
+A estrutura do sistema deve seguir o padrão Controller – Service – Repository, garantindo a separação de responsabilidades para manter o código limpo, escalável e de fácil manutenção.
+
+Realize a implementação utilizando Lombok.
