@@ -1,0 +1,11 @@
+POST /api/clientes
+Content-Type: application/json
+
+{
+  "nome": "João da Silva",
+  "email": "joao@email.com"
+}
+
+-------------------------------------
+
+GET /api/clientes
