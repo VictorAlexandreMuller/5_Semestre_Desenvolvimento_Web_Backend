@@ -1,0 +1,1 @@
+clique com o botao direito no arquivo "ValidadorCliente.java" e dê Run Java.
