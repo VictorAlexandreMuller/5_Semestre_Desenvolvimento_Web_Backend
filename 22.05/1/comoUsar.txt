@@ -1,0 +1,15 @@
+Rodar o back:
+
+mvn spring-boot:run
+
+---------------------------------------------
+
+Ir no front:
+
+http://localhost:8080/login
+
+---------------------------------------------
+
+
+admin/admin123
+user/user123

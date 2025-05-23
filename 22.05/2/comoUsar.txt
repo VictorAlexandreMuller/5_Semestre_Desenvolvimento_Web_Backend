@@ -1,0 +1,45 @@
+Rode o projeto RUN
+
+------------------------------------------------
+
+POST http://localhost:8080/auth/register
+Body (JSON):
+{
+  "email": "admin",
+  "password": "admin123"
+}
+
+------------------------------------------------
+
+POST http://localhost:8080/auth/login
+Body (JSON):
+{
+  "email": "admin",
+  "password": "admin123"
+}
+
+------------------------------------------------
+
+GET http://localhost:8080/products
+
+------------------------------------------------
+
+POST http://localhost:8080/products
+Body (JSON):
+{
+  "nome": "Cadeira Gamer",
+  "preco": 799.90
+}
+
+------------------------------------------------
+
+PUT http://localhost:8080/products/1
+Body (JSON):
+{
+  "nome": "Cadeira Premium",
+  "preco": 899.00
+}
+
+------------------------------------------------
+
+DELETE http://localhost:8080/products/1
